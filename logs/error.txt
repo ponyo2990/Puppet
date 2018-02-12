@@ -1,0 +1,14 @@
+First try
+
+2018-02-12 18:45:47,286 - [Notice]: /Stage[main]/Pe_install::Prepare::Certificates/Exec[retrieve cert for puppetmaster.xxxx.com]/returns: Error: Could not call 'find' on 'certificate': Failed to open TCP connection to puppetmaster:8140 (Connection refused - connect(2) for "puppetmaster" port 8140)
+2018-02-12 18:45:47,291 - [Notice]: /Stage[main]/Pe_install::Prepare::Certificates/Exec[retrieve cert for puppetmaster.xxxx.com]/returns: Error: Could not call 'find' on 'certificate': Failed to open TCP connection to puppetmaster:8140 (Connection refused - connect(2) for "puppetmaster" port 8140)
+2018-02-12 18:45:47,291 - [Notice]: /Stage[main]/Pe_install::Prepare::Certificates/Exec[retrieve cert for puppetmaster.xxxx.com]/returns: Error: Try 'puppet help certificate find' for usage
+2018-02-12 18:45:47,292 - [Error]: '/opt/puppetlabs/puppet/bin/puppet certificate find puppetmaster.xxxx.com --ca-location remote --ca_server puppetmaster' returned 1 instead of one of [0]
+2018-02-12 18:45:47,299 - [Error]: /Stage[main]/Pe_install::Prepare::Certificates/Exec[retrieve cert for puppetmaster.xxxx.com]/returns: change from 'notrun' to ['0'] failed: '/opt/puppetlabs/puppet/bin/puppet certificate find puppetmaster.xxxx.com --ca-location remote --ca_server puppetmaster' returned 1 instead of one of [0]
+
+
+
+
+
+2018-02-12 19:36:47,219 - [Error]: Failed to apply catalog: Failed to open TCP connection to puppetmaster:4433 (Connection refused - connect(2) for "puppetmaster" port 4433)
+
