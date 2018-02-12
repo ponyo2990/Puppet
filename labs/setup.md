@@ -25,33 +25,36 @@ Once ubuntu is installed make these configurational changes to the files
 2. vi /etc/hosts
   192.168.56.101 puppet
   
-3. Install updates
+3. reboot the system:
+  sudo reboot
+
+
+4. Install updates
   sudo apt-get install updates
 
-4. Install ssh
+5. Install ssh
   sudo apt-get install ssh
   
-5. change PermitRootLogin yes in /etc/ssh/sshd_config file
+6. change PermitRootLogin yes in /etc/ssh/sshd_config file
   PermitRootLogin yes
   
+7. restart the ssh service 
+  service ssh restart
   
-6. reboot the system:
-  sudo reboot
-  
-7. vi /etc/resolve.conf (this gets reset after reboot)
+8. vi /etc/resolve.conf (this gets reset after reboot)
   Comment the line with .com in it.
 
 
-8. Once the system is up download/copy the puppet installer in /tmp dir.
+9. Once the system is up download/copy the puppet installer in /tmp dir.
 
 Download Link: https://pm.puppetlabs.com/cgi-bin/download.cgi?dist=ubuntu&rel=16.04&arch=amd64&ver=latest
 
-9. extract the contents and run the puppet installer by root user.
+10. extract the contents and run the puppet installer by root user.
 
-10. Once the installation steps are complete it will give you the url with 3000 in the port
+11. Once the installation steps are complete it will give you the url with 3000 in the port
  ex: https://<hostname>:3000
   
-11. Open this link in mozilla in the ubuntu master VM and complete the installation. This may take around 30-45 mins
+12. Open this link in mozilla in the ubuntu master VM and complete the installation. This may take around 30-45 mins
 
 
 
