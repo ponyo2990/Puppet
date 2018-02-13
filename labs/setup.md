@@ -53,6 +53,10 @@ Download Link: https://pm.puppetlabs.com/cgi-bin/download.cgi?dist=ubuntu&rel=16
 
 11. Once the installation steps are complete it will give you the url with 3000 in the port
  ex: https://<hostname>:3000
+ 
+ 
+ 
+ Agent : curl -k https://puppetmaster:8140/packages/current/install.bash | sudo bash
   
 12. Open this link in mozilla in the ubuntu master VM and complete the installation. This may take around 30-45 mins
 
