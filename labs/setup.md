@@ -61,7 +61,7 @@ Download Link: https://pm.puppetlabs.com/cgi-bin/download.cgi?dist=ubuntu&rel=16
 12. Open this link in mozilla in the ubuntu master VM and complete the installation. This may take around 30-45 mins <br />
 
 
-
+13. Puppet agent in centos: https://puppet.com/misc/pe-files/pe_repo/2017.3.1
 
 
 
