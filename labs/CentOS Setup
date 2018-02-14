@@ -1,0 +1,16 @@
+
+Networking:
+  nmcli conn show
+  nmcli conn up enp0s3
+  nmcli conn up enp0s8
+  
+  sed -i s/ONBOOT=no/ONBOOT=yes/ /etc/sysconfig/network-scripts/ifcfg-enp0s3
+  sed -i s/ONBOOT=no/ONBOOT=yes/ /etc/sysconfig/network-scripts/ifcfg-enp0s8
+  grep ONBOOT !$
+  
+  
+  
+  More info : http://www.mustbegeek.com/configure-static-ip-address-in-centos/
+  
+  
+  
