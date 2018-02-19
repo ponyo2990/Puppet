@@ -65,19 +65,26 @@ Download Link: https://pm.puppetlabs.com/cgi-bin/download.cgi?dist=ubuntu&rel=16
 
 
 14. Services to restart:
-  See all services running:
-    service --status-all | grep pe
-       [ + ]  pe-console-services
-       [ + ]  pe-orchestration-services
-       [ + ]  pe-puppetdb
-       [ - ]  pe-puppetserver
-       [ + ]  speech-dispatcher
+  See all services running:<br />
+    service --status-all | grep pe <br />
+       [ + ]  pe-console-services <br />
+       [ + ]  pe-orchestration-services<br />
+       [ + ]  pe-puppetdb<br />
+       [ - ]  pe-puppetserver<br />
+       [ + ]  speech-dispatcher<br />
 
 
 
-  service pe-console-services status
-  service pe-puppetdb status
-  service pe-orchestration-services status
-  service pe-puppetserver status
+  service pe-console-services status<br />
+  service pe-puppetdb status<br />
+  service pe-orchestration-services status<br />
+  service pe-puppetserver status<br />
+  
+  To add different architecture and node:
+    pe_repo::platform::ubuntu_1404_amd64
+    pe_repo::platform::el_7_x86_64
 
-
+Common Issues:
+  Bad Gateway: restart pe-console-services
+  Failed connect to puppetmaster:8140; Connection refused : restart pe-puppetserver services
+  The agent packages needed to support el-7-x86_64 are not present on your master : install the agent package in puppet master node 
