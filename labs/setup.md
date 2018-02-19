@@ -64,4 +64,20 @@ Download Link: https://pm.puppetlabs.com/cgi-bin/download.cgi?dist=ubuntu&rel=16
 13. Puppet agent in centos: https://puppet.com/misc/pe-files/pe_repo/2017.3.1
 
 
+14. Services to restart:
+  See all services running:
+    service --status-all | grep pe
+       [ + ]  pe-console-services
+       [ + ]  pe-orchestration-services
+       [ + ]  pe-puppetdb
+       [ - ]  pe-puppetserver
+       [ + ]  speech-dispatcher
+
+
+
+  service pe-console-services status
+  service pe-puppetdb status
+  service pe-orchestration-services status
+  service pe-puppetserver status
+
 
