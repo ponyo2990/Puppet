@@ -10,6 +10,18 @@ Networking:
   
   
   
+  
+  Hostname:
+  
+    vi /etc/sysconfig/network
+  
+   HOSTNAME=myserver.domain.com
+  
+    /etc/hosts
+  
+  Restart networking on your server to ensure that changes will persist on restart.
+    /etc/init.d/network restart
+  
   More info : http://www.mustbegeek.com/configure-static-ip-address-in-centos/
   
   
