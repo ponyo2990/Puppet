@@ -1,0 +1,116 @@
+[root@CentOSA ~]# curl -k https://puppetmaster:8140/packages/current/install.bash | sudo bash
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 25770  100 25770    0     0  57144      0 --:--:-- --:--:-- --:--:-- 57139
+Loaded plugins: fastestmirror
+Cleaning repos: pe_repo
+Cleaning up everything
+Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned data from disabled or removed repos
+Cleaning up list of fastest mirrors
++ yum list installed puppet-agent
+Loaded plugins: fastestmirror
+base                                                                                                                                                      | 3.6 kB  00:00:00
+extras                                                                                                                                                    | 3.4 kB  00:00:00
+pe_repo                                                                                                                                                   | 2.4 kB  00:00:00
+updates                                                                                                                                                   | 3.4 kB  00:00:00
+pe_repo/primary_db                                                                                                                                        | 5.1 kB  00:00:00
+Determining fastest mirrors
+ * base: centos.mirror.snu.edu.in
+ * extras: centos.mirror.snu.edu.in
+ * updates: centos.mirror.snu.edu.in
+Error: No matching Packages to list
++ yum install -y puppet-agent-5.3.4
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.mirror.snu.edu.in
+ * extras: centos.mirror.snu.edu.in
+ * updates: centos.mirror.snu.edu.in
+Resolving Dependencies
+--> Running transaction check
+---> Package puppet-agent.x86_64 0:5.3.4-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=================================================================================================================================================================================
+ Package                                      Arch                                   Version                                       Repository                               Size
+=================================================================================================================================================================================
+Installing:
+ puppet-agent                                 x86_64                                 5.3.4-1.el7                                   pe_repo                                  25 M
+
+Transaction Summary
+=================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 25 M
+Installed size: 120 M
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/pe_repo/packages/puppet-agent-5.3.4-1.el7.x86_64.rpm: Header V4 RSA/SHA256 Signature, key ID ef8d349f: NOKEY  ] 3.9 MB/s |  24 MB  00:00:00 ETA
+Public key for puppet-agent-5.3.4-1.el7.x86_64.rpm is not installed
+puppet-agent-5.3.4-1.el7.x86_64.rpm                                                                                                                       |  25 MB  00:00:05
+Retrieving key from https://puppetmaster:8140/packages/GPG-KEY-puppetlabs
+Importing GPG key 0x4BD6EC30:
+ Userid     : "Puppet Labs Release Key (Puppet Labs Release Key) <info@puppetlabs.com>"
+ Fingerprint: 47b3 20eb 4c7c 375a a9da e1a0 1054 b7a2 4bd6 ec30
+ From       : https://puppetmaster:8140/packages/GPG-KEY-puppetlabs
+Retrieving key from https://puppetmaster:8140/packages/GPG-KEY-puppet
+Importing GPG key 0xEF8D349F:
+ Userid     : "Puppet, Inc. Release Key (Puppet, Inc. Release Key) <release@puppet.com>"
+ Fingerprint: 6f6b 1550 9cf8 e59e 6e46 9f32 7f43 8280 ef8d 349f
+ From       : https://puppetmaster:8140/packages/GPG-KEY-puppet
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : puppet-agent-5.3.4-1.el7.x86_64                                                                                                                               1/1
+  Verifying  : puppet-agent-5.3.4-1.el7.x86_64                                                                                                                               1/1
+
+Installed:
+  puppet-agent.x86_64 0:5.3.4-1.el7
+
+Complete!
++ set +x
+service { 'puppet':
+  ensure => 'stopped',
+}
+Notice: /Service[puppet]/ensure: ensure changed 'stopped' to 'running'
+service { 'puppet':
+  ensure => 'running',
+  enable => 'true',
+}
+Notice: /File[/usr/local/bin/facter]/ensure: created
+file { '/usr/local/bin/facter':
+  ensure   => 'link',
+  selrange => 's0',
+  selrole  => 'object_r',
+  seltype  => 'bin_t',
+  seluser  => 'system_u',
+  target   => '/opt/puppetlabs/puppet/bin/facter',
+}
+Notice: /File[/usr/local/bin/puppet]/ensure: created
+file { '/usr/local/bin/puppet':
+  ensure   => 'link',
+  selrange => 's0',
+  selrole  => 'object_r',
+  seltype  => 'bin_t',
+  seluser  => 'system_u',
+  target   => '/opt/puppetlabs/puppet/bin/puppet',
+}
+Notice: /File[/usr/local/bin/pe-man]/ensure: created
+file { '/usr/local/bin/pe-man':
+  ensure   => 'link',
+  selrange => 's0',
+  selrole  => 'object_r',
+  seltype  => 'bin_t',
+  seluser  => 'system_u',
+  target   => '/opt/puppetlabs/puppet/bin/pe-man',
+}
+Notice: /File[/usr/local/bin/hiera]/ensure: created
+file { '/usr/local/bin/hiera':
+  ensure   => 'link',
+  selrange => 's0',
+  selrole  => 'object_r',
+  seltype  => 'bin_t',
+  seluser  => 'system_u',
+  target   => '/opt/puppetlabs/puppet/bin/hiera',
+}
