@@ -1,0 +1,6 @@
+puppet agent --test --server puppetmaster --noop  #command used to test the puppet module but no operation is performed
+
+
+
+
+#reports are created in /opt/puppetlabs/server/data/puppetserver/reports/
