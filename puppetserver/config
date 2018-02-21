@@ -1,17 +1,17 @@
 #main configuration file of puppetserver
-vi /etc/sysconfig/puppetserver
+#vi /etc/sysconfig/puppetserver
 
 #this has the java arguments
 
 #command to start the puppetserver
 
-systemctl start puppetserver 
+#systemctl start puppetserver 
 
 #manifests are stored inside the /etc/puppetlabs/code/environments/production/manifests
 
-vi site.pp
+#vi site.pp
 
-node /agent/ {
+node /agent/ { #this is a regular expression which can will impletement code on all the nodes which have 'agent' in their name
     include webserver
 }
 
@@ -19,7 +19,7 @@ node /agent/ {
 # webserver module will be created and installed
 
 
-vi modules/webserver/manifests/init.pp
+#vi modules/webserver/manifests/init.pp
 
 class webserver {
     if $::osfamily == 'Redhat' {
