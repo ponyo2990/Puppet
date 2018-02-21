@@ -1,0 +1,43 @@
+#To communicate with master, agent needs to be authenticated and this is done with the help of certificates
+
+
+
+
+#puppetmaster also acts as an agent and is certified when puppet runs for the first time for <fqdn>
+
+# we can re-generate the certificate for puppet master
+
+puppet cert generate puppetserver<fqdn> --dns_alt_names=puppet,puppetmaster,puppetserver,puppetmaster<fqdn>
+
+#if the certificate is not signed automatically we can sign it manually by
+
+puppet cert sign puppetserver<fqdn> --allow-dns-alt-names option
+
+
+#once this is done we need to edit /etc/puppetlabs/puppet/puppet.conf file
+
+[main]
+certname = puppetserver<fqdn>
+[master]
+dns_alt_names = puppet,puppetmaster,puppetserver,puppetmaster<fqdn>
+
+
+#After this restart puppererver by
+systemctl restart puppetserver
+
+#signing certificates automatically
+
+#configuration file /etc/puppetlabs/puppet/autosign.conf
+
+whitelist enteries
+*
+*.example.com
+
+
+#by default puppet serches the file in autosign in $confdir
+
+#if we define this file anywhere else we have to configure /etc/puppetlabs/puppet/puppet.conf
+[master]
+autosign = <autosign_whitelist_filepath>
+
+Default : $confdir/autosign.conf
