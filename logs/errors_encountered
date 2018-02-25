@@ -1,0 +1,24 @@
+Error: Could not retrieve catalog from remote server: Error 500 on SERVER: Server Error: Evaluation Error: Error while evaluating a Resource Statement, Cannot alias File[gs-service] to ["/opt/deploy_files/"] at (file: /etc/puppetlabs/code/environments/production/manifests/site.pp, line: 49); resource ["File", "/opt/deploy_files/"] already declared (file: /etc/puppetlabs/code/environments/production/manifests/site.pp, line: 41) (file: /etc/puppetlabs/code/environments/production/manifests/site.pp, line: 49, column: 1) on node puppetagent.ztp00jog1fou3bhydwr2wkgd5d.rx.internal.cloudapp.net
+
+
+appended the name in the file path
+
+from
+
+file {'assessment':
+        ensure => 'directory',
+        source   => 'puppet:///modules/deploy_files',
+        recurse  => true,
+        path    => '/opt/deploy_files/',
+        mode  => '0777',
+}
+
+to
+
+file {'assessment':
+        ensure => 'directory',
+        source   => 'puppet:///modules/deploy_files',
+        recurse  => true,
+        path    => '/opt/deploy_files/assessment',
+        mode  => '0777',
+}
