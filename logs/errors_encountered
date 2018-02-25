@@ -22,3 +22,20 @@ file {'assessment':
         path    => '/opt/deploy_files/assessment',
         mode  => '0777',
 }
+______________________________________________________
+
+
+Error No 2:
+
+Error: Cannot create /opt/deploy_files/assessment; parent directory /opt/deploy_files does not exist
+Error: /Stage[main]/Main/Node[default]/File[assessment]/ensure: change from 'absent' to 'directory' failed: Cannot create /opt/deploy_files/assessment; parent directory /opt/deploy_files does not exist
+
+
+need to check workaround 
+
+
+__________________________________________________________
+
+
+Error: /Stage[main]/Mysql::Server::Service/Service[mysqld]: Provider upstart is not functional on this host
+Error: Failed to apply catalog: Execution of '/usr/bin/mysql -NBe SELECT MAX_USER_CONNECTIONS, MAX_CONNECTIONS, MAX_QUESTIONS, MAX_UPDATES, PASSWORD FROM mysql.user WHERE CONCAT(user, '@', host) = 'debian-sys-maint@localhost'' returned 1: ERROR 1054 (42S22) at line 1: Unknown column 'PASSWORD' in 'field list'
